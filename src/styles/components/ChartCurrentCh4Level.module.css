@@ -1,0 +1,67 @@
+.component_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+.explanation_wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.explanation_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #2c698d;
+    padding: 2px;
+    margin: 10px 10px 10px 0px;
+}
+
+.explanation_item p {
+    margin: 0;
+}
+
+.color_line {
+    width: 20px;
+    height: 4px;
+    margin-top: 2px;
+    margin-right: 8px;
+}
+
+.danger_border {
+    background: #e74645;
+}
+
+.warning_border {
+    background: #facd60;
+}
+
+.forecast_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+}
+
+.forecast_block {
+    height: calc(100% - 2px);
+    width: 50px;
+    background: #fbc64338;
+    border: 1px solid #2c698d;
+    margin-right: 8px;
+}
+
+.lower_value {
+    padding: 2px;
+    margin:0px 8px;
+    border: 2px solid grey;
+}
+
+.chart_wrapper {
+    border: 2px solid lightgray
+}

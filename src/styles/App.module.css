@@ -1,0 +1,43 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    height: calc(100vh - 20px);
+    width: 70px;
+    border-right: 3px solid #000;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.content {
+    flex: 3 1 0;
+    overflow: hidden;
+    margin: 5px;
+    padding-left: 70px
+}
+
+.page_content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    overflow-y: auto;
+}
