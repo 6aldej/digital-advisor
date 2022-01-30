@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/digital-advisor/static/css/main.232fd7f9.css",
-    "main.js": "/digital-advisor/static/js/main.2c76c699.js",
+    "main.css": "/digital-advisor/static/css/main.2b563d69.css",
+    "main.js": "/digital-advisor/static/js/main.2ad03c1a.js",
     "static/media/user.png": "/digital-advisor/static/media/user.bf2aa57c354883cb76fd.png",
     "static/media/question.png": "/digital-advisor/static/media/question.4842ac6ce12e481bd6ec.png",
     "index.html": "/digital-advisor/index.html",
-    "main.232fd7f9.css.map": "/digital-advisor/static/css/main.232fd7f9.css.map",
-    "main.2c76c699.js.map": "/digital-advisor/static/js/main.2c76c699.js.map"
+    "main.2b563d69.css.map": "/digital-advisor/static/css/main.2b563d69.css.map",
+    "main.2ad03c1a.js.map": "/digital-advisor/static/js/main.2ad03c1a.js.map"
   },
   "entrypoints": [
-    "static/css/main.232fd7f9.css",
-    "static/js/main.2c76c699.js"
+    "static/css/main.2b563d69.css",
+    "static/js/main.2ad03c1a.js"
   ]
 }
