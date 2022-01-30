@@ -1,0 +1,23 @@
+.explanation_wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.forecast_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+}
+
+.forecast_block {
+    height: calc(100% - 2px);
+    width: 50px;
+    background: #fbc64338;
+    border: 1px solid #2c698d;
+    margin-right: 8px;
+}

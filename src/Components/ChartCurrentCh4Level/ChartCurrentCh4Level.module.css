@@ -1,0 +1,13 @@
+.chart_wrapper {
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+.chart_border_default {
+    border: 2px solid lightgray;
+}
+
+.chart_border_danger {
+    border: 2px solid red;
+}
