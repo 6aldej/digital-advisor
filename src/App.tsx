@@ -35,7 +35,7 @@ const App = () => (
     <div className={styles.content}>
       <div className={styles.page_content}>
         <Routes>
-          <Route path="/" element={<OperationalScreen />} />
+          <Route path="/digital-advisor" element={<OperationalScreen />} />
         </Routes>
       </div>
     </div>
