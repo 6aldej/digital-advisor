@@ -19,7 +19,7 @@ const ChartCurrentCh4Level: React.FC<{
   const options = {
     chart: {
       type: 'line',
-      height: 300,
+      height: 250,
       marginRight: 80,
     },
     credits: {
