@@ -1,7 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-
+import { ReactComponent as InfoImg } from 'Assets/Images/info.svg';
 import chartLang from 'Configs/chartsConfig';
 
 import classnames from 'classnames';
@@ -15,29 +15,27 @@ const ChartCurrentCh4Level: React.FC<{
     plotLines: number[];
     danger: boolean;
   };
-}> = ({ data }) => {
+  title: string;
+  status: string;
+  info: string;
+}> = ({ data, title, status, info }) => {
   const options = {
     chart: {
       type: 'line',
-      height: 250,
-      marginRight: 80,
+      marginRight: 50,
     },
     credits: {
       enabled: false,
     },
     title: {
-      text: 'Текущий уровень CH4, %',
+      text: title,
+      margin: 0,
+      style: {
+        fontSize: '14px',
+      },
     },
     legend: {
-      enabled: true,
-      margin: 33,
-      align: 'center',
-      padding: 0,
-      alignColumns: true,
-      symbolRadius: 0,
-      symbolPadding: 15,
-      symbolWidth: 18,
-      symbolHeight: 7,
+      enabled: false,
     },
     xAxis: {
       type: 'datetime',
@@ -78,11 +76,15 @@ const ChartCurrentCh4Level: React.FC<{
       ],
     },
     yAxis: {
-      lineWidth: 1,
+      lineWidth: 2,
+      // tickPositions: [0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.5],
+      min: 0,
+      max: 2.5,
+      endOnTick: false,
+      tickInterval: 0.25,
       title: {
         text: '',
       },
-      tickInterval: 0.1,
       plotLines: [
         {
           color: '#e74645',
@@ -91,11 +93,17 @@ const ChartCurrentCh4Level: React.FC<{
           zIndex: 5,
           label: {
             useHTML: true,
-            text: `<div class="plot-lines-value">${Math.max.apply(null, [
+            text: `<div title="Аварийная граница" class="plot-lines-value">${Math.max.apply(null, [
               ...data.plotLines,
             ])}%</div>`,
             align: 'right',
             textAlign: 'left',
+            y:
+              Math.max.apply(null, [...data.plotLines]) -
+                Math.min.apply(null, [...data.plotLines]) <
+              0.25
+                ? -10
+                : -5,
             style: {
               minWidth: '30px',
               background: '#ffbaba',
@@ -103,6 +111,7 @@ const ChartCurrentCh4Level: React.FC<{
               fontWeight: 'bold',
               padding: '2px',
               textAlign: 'center',
+              marginBottom: '10px',
             },
           },
         },
@@ -113,11 +122,18 @@ const ChartCurrentCh4Level: React.FC<{
           zIndex: 5,
           label: {
             useHTML: true,
-            text: `<div class="plot-lines-value">${Math.min.apply(null, [
-              ...data.plotLines,
-            ])}%</div>`,
+            text: `<div title="Предупредительная граница" class="plot-lines-value">${Math.min.apply(
+              null,
+              [...data.plotLines]
+            )}%</div>`,
             align: 'right',
             textAlign: 'left',
+            y:
+              Math.max.apply(null, [...data.plotLines]) -
+                Math.min.apply(null, [...data.plotLines]) <
+              0.25
+                ? 10
+                : 5,
             style: {
               minWidth: '30px',
               background: '#ffd18c',
@@ -125,6 +141,7 @@ const ChartCurrentCh4Level: React.FC<{
               fontWeight: 'bold',
               padding: '2px',
               textAlign: 'center',
+              marginBottom: '10px',
             },
           },
         },
@@ -152,15 +169,18 @@ const ChartCurrentCh4Level: React.FC<{
   return (
     <div
       className={
-        !data.danger
-          ? classnames(styles.chart_wrapper, styles.chart_border_default)
-          : classnames(styles.chart_wrapper, styles.chart_border_danger)
+        status
+          ? classnames(styles.chart_wrapper, styles[status])
+          : classnames(styles.chart_wrapper, styles.chart_border_default)
       }
     >
+      <div className={styles.chart_info} title={info}>
+        <InfoImg />
+      </div>
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
-        containerProps={{ style: { width: '100%' } }}
+        containerProps={{ style: { height: '100%', width: '100%' } }}
       />
     </div>
   );
