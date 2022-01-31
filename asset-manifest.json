@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.2b563d69.css",
-    "main.js": "/static/js/main.bc892d19.js",
-    "static/media/user.png": "/static/media/user.bf2aa57c354883cb76fd.png",
-    "static/media/question.png": "/static/media/question.4842ac6ce12e481bd6ec.png",
-    "index.html": "/index.html",
-    "main.2b563d69.css.map": "/static/css/main.2b563d69.css.map",
-    "main.bc892d19.js.map": "/static/js/main.bc892d19.js.map"
+    "main.css": "/digital-advisor/static/css/main.26539ecd.css",
+    "main.js": "/digital-advisor/static/js/main.e019c578.js",
+    "static/media/user.png": "/digital-advisor/static/media/user.bf2aa57c354883cb76fd.png",
+    "static/media/question.png": "/digital-advisor/static/media/question.4842ac6ce12e481bd6ec.png",
+    "static/media/warning.svg": "/digital-advisor/static/media/warning.c055916a1828fb51744af069b6381f1d.svg",
+    "static/media/info.svg": "/digital-advisor/static/media/info.a26954852cb3fc36864898e8b3848e76.svg",
+    "index.html": "/digital-advisor/index.html",
+    "main.26539ecd.css.map": "/digital-advisor/static/css/main.26539ecd.css.map",
+    "main.e019c578.js.map": "/digital-advisor/static/js/main.e019c578.js.map"
   },
   "entrypoints": [
-    "static/css/main.2b563d69.css",
-    "static/js/main.bc892d19.js"
+    "static/css/main.26539ecd.css",
+    "static/js/main.e019c578.js"
   ]
 }
