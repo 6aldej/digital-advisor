@@ -1,8 +1,9 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { ReactComponent as InfoImg } from 'Assets/Images/info.svg';
 import chartLang from 'Configs/chartsConfig';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import classnames from 'classnames';
 import styles from './ChartCurrentCh4Level.module.css';
@@ -13,7 +14,6 @@ const ChartCurrentCh4Level: React.FC<{
   data: {
     series: { data: (number | null)[][]; color: string; name: string }[];
     plotLines: number[];
-    danger: boolean;
   };
   title: string;
   status: string;
@@ -31,7 +31,7 @@ const ChartCurrentCh4Level: React.FC<{
       text: title,
       margin: 0,
       style: {
-        fontSize: '14px',
+        fontSize: '16px',
       },
     },
     legend: {
@@ -48,7 +48,7 @@ const ChartCurrentCh4Level: React.FC<{
           color: '#b30000',
           value: 1642161850000,
           width: 4,
-          zIndex: 5,
+          zIndex: 3,
           label: {
             text: 'Сейчас',
             rotation: 0,
@@ -175,7 +175,7 @@ const ChartCurrentCh4Level: React.FC<{
       }
     >
       <div className={styles.chart_info} title={info}>
-        <InfoImg />
+        <FontAwesomeIcon icon={faInfoCircle} size="lg" />
       </div>
       <HighchartsReact
         highcharts={Highcharts}

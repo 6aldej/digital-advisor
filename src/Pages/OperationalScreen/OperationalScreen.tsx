@@ -69,7 +69,10 @@ const OperationalScreen = () => {
   };
 
   const returnEventList = alerts.events.map((item) => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      key={item.status + item.name}
+    >
       <div className={item.status === 'danger' ? styles.danger_event : styles.warning_event} />
       {item.name}
     </div>

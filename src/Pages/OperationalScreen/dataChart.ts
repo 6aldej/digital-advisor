@@ -28,11 +28,10 @@ export const chartData = {
           [1642161880000, null],
         ],
         name: 'M241',
-        color: '#134e6f',
+        color: '#377bcc',
       },
     ],
     plotLines: [0.9, 1],
-    danger: false,
   },
   M243: {
     series: [
@@ -63,11 +62,10 @@ export const chartData = {
           [1642161880000, null],
         ],
         name: 'M243',
-        color: '#ffa822',
+        color: '#377bcc',
       },
     ],
     plotLines: [0.63, 0.9],
-    danger: true,
   },
   M245: {
     series: [
@@ -98,11 +96,10 @@ export const chartData = {
           [1642161880000, null],
         ],
         name: 'M245',
-        color: '#adadad',
+        color: '#377bcc',
       },
     ],
     plotLines: [0.87, 1],
-    danger: false,
   },
 };
 
