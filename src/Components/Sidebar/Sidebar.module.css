@@ -3,8 +3,8 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 78px;
-    background: #11101D;
+    width: 73px;
+    background: #003c7c;
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
@@ -43,7 +43,7 @@
 .sidebar .logo_details .sidebar_menu {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: 7px;
     transform: translateY(-50%);
     font-size: 22px;
     transition: all 0.4s ease;
@@ -64,21 +64,29 @@
     font-size: 28px;
     text-align: center;
     line-height: 60px;
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .sidebar .sidebar_menu {
     color: #fff;
-    height: 60px;
+    height: 30px;
+    width: 30px;
     min-width: 10px;
     font-size: 28px;
     text-align: center;
     line-height: 60px;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.sidebar .sidebar_menu:hover {
+    background: #fff;
+    color: #003c7c
 }
 
 .sidebar .nav_list {
-    margin-top: 20px;
-    height: calc(100% - 130px);
+    margin: 20px 0px;
+    height: calc(100% - 90px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -96,7 +104,7 @@
     left: calc(100% + 15px);
     z-index: 3;
     background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px #0000004d;
     padding: 6px 12px;
     border-radius: 4px;
     font-size: 15px;
@@ -119,7 +127,8 @@
     display: none;
 }
 
-.sidebar li a {
+.sidebar li a,
+.sidebar li .profile {
     display: flex;
     height: 100%;
     width: 100%;
@@ -127,14 +136,16 @@
     align-items: center;
     text-decoration: none;
     transition: all 0.4s ease;
-    background: #11101D;
+    background: #003c7c;
 }
 
-.sidebar li a:hover {
+.sidebar li a:hover,
+.sidebar li .profile:hover {
     background: #FFF;
 }
 
-.sidebar li a .links_name {
+.sidebar li a .links_name,
+.sidebar li .profile .links_name {
     color: #fff;
     font-size: 15px;
     font-weight: 400;
@@ -145,15 +156,18 @@
     margin-left: 10px;
 }
 
-.sidebar.open li a .links_name {
+.sidebar.open li a .links_name,
+.sidebar.open li .profile .links_name {
     opacity: 1;
     pointer-events: auto;
 }
 
 .sidebar li a:hover .links_name,
-.sidebar li a:hover .sidebar_icon {
+.sidebar li a:hover .sidebar_icon,
+.sidebar li .profile:hover .links_name,
+.sidebar li .profile:hover .sidebar_icon {
     transition: all 0.5s ease;
-    color: #11101D;
+    color: #003c7c;
 }
 
 .sidebar li .sidebar_icon {
@@ -163,92 +177,26 @@
     border-radius: 12px;
 }
 
-.sidebar li.profile {
-    position: fixed;
-    height: 60px;
-    width: 78px;
-    left: 0;
-    bottom: -8px;
-    padding: 10px 14px;
-    background: #1d1b31;
-    transition: all 0.5s ease;
-    overflow: hidden;
-}
-
-.sidebar.open li.profile {
-    width: 250px;
-}
-
-.sidebar li .profile_details {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-.sidebar li img {
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 10px;
-}
-
-.sidebar li.profile .name,
-.sidebar li.profile .job {
-    font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-    white-space: nowrap;
-}
-
-.sidebar li.profile .job {
-    font-size: 12px;
-}
-
-.sidebar .profile .log_out {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background: #1d1b31;
-    width: 100%;
-    height: 40px;
-    line-height: 60px;
-    border-radius: 0px;
-    transition: all 0.5s ease;
-}
-
-.sidebar.open .profile .log_out {
-    width: 50px;
-    background: none;
-}
-
-.home_section {
-    position: relative;
-    background: #E4E9F7;
-    min-height: 100vh;
-    top: 0;
-    left: 78px;
-    width: calc(100% - 78px);
-    transition: all 0.5s ease;
-    z-index: 2;
-}
-
-.sidebar.open~.home_section {
-    left: 250px;
-    width: calc(100% - 250px);
-}
-
-.home_section .text {
-    display: inline-block;
-    color: #11101d;
-    font-size: 25px;
-    font-weight: 500;
-    margin: 18px
-}
-
 @media (max-width: 420px) {
     .sidebar li .tooltip {
         display: none;
     }
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, .54);
+    opacity: 0;
+    transition: width 0ms .25s, height 0ms .25s, opacity .25s;
+}
+
+.backdropShow {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: width 0ms, height 0ms, opacity .25s;
 }

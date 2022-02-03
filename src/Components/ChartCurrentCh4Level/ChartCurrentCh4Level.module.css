@@ -6,15 +6,18 @@
 }
 
 .chart_border_default {
-    border: 2px solid lightgray;
+    border: 4px solid lightgray;
+    border-radius: 10px;
 }
 
 .danger {
     border: 4px solid #e74645;
+    border-radius: 8px;
 }
 
 .warning {
     border: 4px solid #facd60;
+    border-radius: 8px;
 }
 
 .chart_info {
