@@ -8,56 +8,60 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-// import styles from './Sidebar.module.css';
-import './style.css';
+
+import classnames from 'classnames';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className={sidebarOpen ? 'sidebar open' : 'sidebar'}>
-      <div className="logo-details">
-        <div className="logo_name">Digital Advisor</div>
+    <div className={sidebarOpen ? classnames(styles.sidebar, styles.open) : styles.sidebar}>
+      <div className={styles.logo_details}>
+        <div className={styles.logo_name}>Digital Advisor</div>
         <FontAwesomeIcon
-          className="sidebar-menu"
+          className={styles.sidebar_menu}
           icon={sidebarOpen ? faTimes : faBars}
           id="btn"
           style={{ marginLeft: 0 }}
           onClick={() => setSidebarOpen((prev) => !prev)}
         />
       </div>
-      <ul className="nav-list">
+      <ul className={styles.nav_list}>
         <div>
           <li>
             <a href="#оперативный_экран">
-              <FontAwesomeIcon className="sidebar-icon" icon={faDesktop} />
-              <span className="links_name">Оперативный экран</span>
+              <FontAwesomeIcon className={styles.sidebar_icon} icon={faDesktop} />
+              <span className={styles.links_name}>Оперативный экран</span>
             </a>
-            <span className="tooltip">Оперативный экран</span>
+            <span className={styles.tooltip}>Оперативный экран</span>
           </li>
           <li>
             <a href="#диаграмма_CH4">
-              <FontAwesomeIcon className="sidebar-icon" icon={faChartLine} />
-              <span className="links_name">Диаграмма CH4</span>
+              <FontAwesomeIcon className={styles.sidebar_icon} icon={faChartLine} />
+              <span className={styles.links_name}>Диаграмма CH4</span>
             </a>
-            <span className="tooltip">Диаграмма CH4</span>
+            <span className={styles.tooltip}>Диаграмма CH4</span>
           </li>
         </div>
-        <li className="support_service">
+        <li className={styles.support_service}>
           <a href="#служба_поддержки">
-            <FontAwesomeIcon className="sidebar-icon" icon={faQuestionCircle} />
-            <span className="links_name">Служба поддержки</span>
+            <FontAwesomeIcon className={styles.sidebar_icon} icon={faQuestionCircle} />
+            <span className={styles.links_name}>Служба поддержки</span>
           </a>
-          <span className="tooltip">Служба поддержки</span>
+          <span className={styles.tooltip}>Служба поддержки</span>
         </li>
-        <li className="profile">
-          <div className="profile-details">
-            <div className="name_job">
-              <div className="name">Иванов Иван Иванович</div>
-              <div className="job">Инженер</div>
+        <li className={styles.profile}>
+          <div className={styles.profile_details}>
+            <div className={styles.name_job}>
+              <div className={styles.name}>Иванов Иван Иванович</div>
+              <div className={styles.job}>Инженер</div>
             </div>
           </div>
-          <FontAwesomeIcon className="sidebar-icon" icon={faUser} id="log_out" />
+          <FontAwesomeIcon
+            className={classnames(styles.sidebar_icon, styles.log_out)}
+            icon={faUser}
+          />
         </li>
       </ul>
     </div>
