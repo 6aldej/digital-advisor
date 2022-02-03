@@ -1,14 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import ChartCurrentCh4Level from 'Components/ChartCurrentCh4Level/ChartCurrentCh4Level';
 import Table from 'Components/Table/Table';
 import { ReactComponent as WarningImg } from 'Assets/Images/warning.svg';
 import SplitterLayout from 'react-splitter-layout';
 import Highcharts from 'highcharts';
-
+import debounce from 'lodash.debounce';
 import { chartData } from './dataChart';
 
 import 'react-splitter-layout/lib/index.css';
-
 import styles from './OperationalScreen.module.css';
 
 const OperationalScreen = () => {
@@ -87,10 +86,10 @@ const OperationalScreen = () => {
     </div>
   ));
 
+  const updSet = debounce((value) => setPaneSize(value), 500);
+  const debouceRequest = useCallback((value: number) => updSet(value), []);
   const onSecondaryPaneSizeChange = (secondaryPaneSize) => {
-    setTimeout(() => {
-      setPaneSize(secondaryPaneSize);
-    }, 1000);
+    debouceRequest(secondaryPaneSize);
   };
 
   useEffect(() => {
