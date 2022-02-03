@@ -1,8 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ChartCurrentCh4Level from 'Components/ChartCurrentCh4Level/ChartCurrentCh4Level';
 import Table from 'Components/Table/Table';
 import { ReactComponent as WarningImg } from 'Assets/Images/warning.svg';
+import SplitterLayout from 'react-splitter-layout';
+import Highcharts from 'highcharts';
+
 import { chartData } from './dataChart';
+
+import 'react-splitter-layout/lib/index.css';
 
 import styles from './OperationalScreen.module.css';
 
@@ -14,6 +19,10 @@ const OperationalScreen = () => {
     priorityStatus: '',
     events: [],
   });
+
+  const [paneSize, setPaneSize] = useState(0);
+
+  const chartWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const events: { name: string; status: string }[] = [];
@@ -78,6 +87,18 @@ const OperationalScreen = () => {
     </div>
   ));
 
+  const onSecondaryPaneSizeChange = (secondaryPaneSize) => {
+    setTimeout(() => {
+      setPaneSize(secondaryPaneSize);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    Highcharts.charts.forEach((chart: any) => {
+      chart.reflow();
+    });
+  }, [paneSize]);
+
   return (
     <div className={styles.page_operational_screen}>
       <div className={styles.explanation_wrapper}>
@@ -97,58 +118,67 @@ const OperationalScreen = () => {
           <div className={styles.events_list}>{returnEventList}</div>
         </div>
       </div>
-
-      <div className={styles.charts_wrapper}>
-        <ChartCurrentCh4Level
-          data={chartData.M241}
-          title="М241 - Текущий уровень CH4, %"
-          info="М241 - Датчик метана ВШ, над приводом главного конвейера"
-          status={returnStatus(alerts.events, 'M241')}
-        />
-        <ChartCurrentCh4Level
-          data={chartData.M243}
-          title="М243 - Текущий уровень CH4, %"
-          info="М243 - Датчик метана ВШ, в тупике вентиляционной выработки, погашаемой за очистным забоем"
-          status={returnStatus(alerts.events, 'M243')}
-        />
-        <ChartCurrentCh4Level
-          data={chartData.M245}
-          title="М245 - Текущий уровень CH4, %"
-          info="М245 - Датчик метана ВШ, на исходящей струе очистной выработки"
-          status={returnStatus(alerts.events, 'M245')}
-        />
-      </div>
-
-      <div className={styles.table_wrapper}>
-        <Table
-          tableBody={[
-            {
-              id: 1,
-              items: [
-                '12:30:12',
-                'Возможно превышение аварийной границы через 5 мин',
-                'Рекомендация',
-              ],
-            },
-            {
-              id: 2,
-              items: [
-                '12:30:12',
-                'Возможно превышение аварийной границы через 5 мин',
-                'Рекомендация',
-              ],
-            },
-            {
-              id: 3,
-              items: [
-                '12:30:12',
-                'Возможно превышение аварийной границы через 5 мин',
-                'Рекомендация',
-              ],
-            },
-          ]}
-        />
-      </div>
+      <SplitterLayout
+        vertical
+        primaryIndex={1}
+        percentage
+        onSecondaryPaneSizeChange={onSecondaryPaneSizeChange}
+        primaryMinSize={15}
+        secondaryMinSize={50}
+        secondaryInitialSize={85}
+        customClassName={styles.splitter_layout}
+      >
+        <div className={styles.charts_wrapper} ref={chartWrapperRef}>
+          <ChartCurrentCh4Level
+            data={chartData.M241}
+            title="М241 - Текущий уровень CH4, %"
+            info="М241 - Датчик метана ВШ, над приводом главного конвейера"
+            status={returnStatus(alerts.events, 'M241')}
+          />
+          <ChartCurrentCh4Level
+            data={chartData.M243}
+            title="М243 - Текущий уровень CH4, %"
+            info="М243 - Датчик метана ВШ, в тупике вентиляционной выработки, погашаемой за очистным забоем"
+            status={returnStatus(alerts.events, 'M243')}
+          />
+          <ChartCurrentCh4Level
+            data={chartData.M245}
+            title="М245 - Текущий уровень CH4, %"
+            info="М245 - Датчик метана ВШ, на исходящей струе очистной выработки"
+            status={returnStatus(alerts.events, 'M245')}
+          />
+        </div>
+        <div className={styles.table_wrapper}>
+          <Table
+            tableBody={[
+              {
+                id: 1,
+                items: [
+                  '12:30:12',
+                  'Возможно превышение аварийной границы через 5 мин',
+                  'Рекомендация',
+                ],
+              },
+              {
+                id: 2,
+                items: [
+                  '12:30:12',
+                  'Возможно превышение аварийной границы через 5 мин',
+                  'Рекомендация',
+                ],
+              },
+              {
+                id: 3,
+                items: [
+                  '12:30:12',
+                  'Возможно превышение аварийной границы через 5 мин',
+                  'Рекомендация',
+                ],
+              },
+            ]}
+          />
+        </div>
+      </SplitterLayout>
     </div>
   );
 };

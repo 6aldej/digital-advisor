@@ -2,9 +2,9 @@
     padding: 10px;
     /* height: calc(100% - 20px); */
     height: 100%;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: .1fr 10fr 1.5fr;
+    grid-template-rows: .1fr 10fr 1.5fr; */
 }
 
 .explanation_wrapper {
@@ -99,8 +99,12 @@
     }
 }
 
-.charts_wrapper {}
+.charts_wrapper {
+    height: 100%;
+    width: 100%;
+}
 
-.table_wrapper {
-    overflow: auto;
+.splitter_layout {
+    height: calc(100% - 65px);
+    width: calc(100% - 85px);
 }

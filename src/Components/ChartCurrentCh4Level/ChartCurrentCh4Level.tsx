@@ -180,7 +180,7 @@ const ChartCurrentCh4Level: React.FC<{
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
-        containerProps={{ style: { height: '100%', width: '100%' } }}
+        containerProps={{ style: { height: '100%', width: '100%', position: 'absolute' } }}
       />
     </div>
   );

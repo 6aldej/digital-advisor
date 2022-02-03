@@ -24,3 +24,7 @@ body #root {
 .plot-lines-value {
   right: 0;
 }
+
+.splitter-layout .layout-pane.layout-pane-primary {
+  margin-top: 5px !important
+}
