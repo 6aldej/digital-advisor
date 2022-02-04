@@ -8,7 +8,6 @@
     padding: 6px 14px;
     z-index: 99;
     transition: all 0.5s ease;
-    overflow: hidden;
 }
 
 .sidebar.open {
@@ -138,6 +137,7 @@
     text-decoration: none;
     transition: all 0.4s ease;
     background: #003c7c;
+    overflow: hidden;
 }
 
 .sidebar li a:hover,
