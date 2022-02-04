@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/digital-advisor/static/css/main.936551bb.css",
+    "main.css": "/digital-advisor/static/css/main.35a75b21.css",
     "main.js": "/digital-advisor/static/js/main.fee3198b.js",
     "static/media/warning.svg": "/digital-advisor/static/media/warning.c055916a1828fb51744af069b6381f1d.svg",
     "index.html": "/digital-advisor/index.html",
-    "main.936551bb.css.map": "/digital-advisor/static/css/main.936551bb.css.map",
+    "main.35a75b21.css.map": "/digital-advisor/static/css/main.35a75b21.css.map",
     "main.fee3198b.js.map": "/digital-advisor/static/js/main.fee3198b.js.map"
   },
   "entrypoints": [
-    "static/css/main.936551bb.css",
+    "static/css/main.35a75b21.css",
     "static/js/main.fee3198b.js"
   ]
 }
